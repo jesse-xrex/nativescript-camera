@@ -60,7 +60,7 @@ export let takePicture = function (options?): Promise<any> {
                 picturePath = utils.ad.getApplicationContext().getExternalFilesDir(null).getAbsolutePath() + "/" + "NSIMG_" + dateStamp + ".jpg";
                 nativeFile = new java.io.File(picturePath);
             }
-
+            nativeFile.getParentFile().mkdir();
             let sdkVersionInt = parseInt(platform.device.sdkVersion);
             if (sdkVersionInt >= 21) {
                 tempPictureUri = FileProviderPackageName.FileProvider.getUriForFile(
