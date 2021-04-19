@@ -93,7 +93,7 @@ class UIImagePickerControllerDelegateImpl extends NSObject implements UIImagePic
                 }
             }
         }
-        picker.presentingViewController.dismissViewControllerAnimatedCompletion(true, null);
+        picker.presentingViewController.dismissViewControllerAnimatedCompletion(false, null);
         listener = null;
     }
 
@@ -118,7 +118,7 @@ class UIImagePickerControllerDelegateImpl extends NSObject implements UIImagePic
     }
 
     imagePickerControllerDidCancel(picker): void {
-        picker.presentingViewController.dismissViewControllerAnimatedCompletion(true, null);
+        picker.presentingViewController.dismissViewControllerAnimatedCompletion(false, null);
         listener = null;
         this._errorCallback(new Error("cancelled"));
     }
